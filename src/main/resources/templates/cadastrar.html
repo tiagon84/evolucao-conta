@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+
+<head>
+	<title>Evolução Conta</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+
+	<div class="container ">
+
+		<div class="row ">
+			<div class="col-12 ">
+
+				<h2>Cadastro conta de energia</h2>
+			</div>
+			<div class="col-3 mx-auto">
+
+				<form action="/add" method="POST">
+					<div class="form-group">
+						<label for="valor">Valor</label>
+						<input type="number" class="form-control" id="valor" placeholder="1,99" name="valor">
+					</div>
+					<div class="form-group">
+						<label for="dataEmissao">Data de emissão</label>
+						<input type="date" class="form-control" id="dataEmissao" placeholder="20/05/1999" name="dataEmissao">
+					</div>
+					<div class="form-group">
+						<label for="dataVencimento">Data de vencimento</label>
+						<input type="date" class="form-control" id="dataVencimento" placeholder="20/05/1999"
+							name="dataVencimento">
+					</div>
+					<div class="form-group">
+						<label class="" for="mesReferente">Mês referente:</label>
+						<select class="custom-select " id="mesReferente">
+							<option selected>Escolha...</option>
+							<option value="1">Janeiro</option>
+							<option value="2">Fevereiro</option>
+							<option value="3">Março</option>
+							<option value="4">Abril</option>
+							<option value="5">Maio</option>
+							<option value="6">Junho</option>
+							<option value="7">Julho</option>
+							<option value="8">Agosto</option>
+							<option value="9">Setembro</option>
+							<option value="10">Outubro</option>
+							<option value="11">Novembro</option>
+							<option value="12">Dezembro</option>
+						</select>
+					</div>
+					<div class="form-group">
+						<label for="numInstalacao">numero instalacao</label>
+						<input type="text" class="form-control" id="numInstalacao" name="numInstalacao">
+					</div>
+
+
+					<div class="form-group">
+						<label for="numCliente">numero cliente</label>
+						<input type="text" class="form-control" id="numCliente" name="numCliente">
+					</div>
+
+					<div class="form-group">
+						<label for="consumo">consumo</label>
+						<input type="text" class="form-control" id="consumo" name="consumo">
+					</div>
+
+
+					<div class="form-group form-check">
+						<input type="checkbox" class="form-check-input" id="status">
+						<label class="form-check-label" for="status">Paga?</label>
+					</div>
+					<button type="submit" class="btn btn-primary">Salvar</button>
+				</form>
+			</div>
+
+
+
+		</div>
+	</div>
+	<script src="https://code.jquery.com/jquery-3.4.1.min.js"
+		integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>
