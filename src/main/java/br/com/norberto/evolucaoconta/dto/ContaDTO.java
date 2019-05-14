@@ -3,22 +3,11 @@ package br.com.norberto.evolucaoconta.dto;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import com.fasterxml.jackson.annotation.JsonFormat;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
-import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
 
 public class ContaDTO implements Serializable {
 
-  @JsonFormat(pattern = "dd/MM/yyyy")
-  @JsonSerialize(using = LocalDateSerializer.class)
-  @JsonDeserialize(using = LocalDateDeserializer.class)
   private LocalDate dataEmissao;
 
-  @JsonFormat(pattern = "dd/MM/yyyy")
-  @JsonSerialize(using = LocalDateSerializer.class)
-  @JsonDeserialize(using = LocalDateDeserializer.class)
   private LocalDate dataVencimento;
 
   private BigDecimal valor;

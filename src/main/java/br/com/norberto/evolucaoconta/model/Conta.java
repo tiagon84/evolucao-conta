@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import java.time.Month;
+import javax.persistence.DiscriminatorColumn;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -15,6 +16,7 @@ import lombok.Data;
 @Inheritance
 @Data
 @Entity
+@DiscriminatorColumn(name = "TIPO_CONTA")
 public abstract class Conta implements Serializable {
 
   @Id
