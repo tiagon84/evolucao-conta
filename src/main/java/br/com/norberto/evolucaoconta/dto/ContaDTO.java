@@ -2,13 +2,15 @@ package br.com.norberto.evolucaoconta.dto;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.time.LocalDate;
+import java.util.Date;
 
 public class ContaDTO implements Serializable {
 
-  private LocalDate dataEmissao;
+  private static final long serialVersionUID = 1L;
 
-  private LocalDate dataVencimento;
+  private Date dataEmissao;
+
+  private Date dataVencimento;
 
   private BigDecimal valor;
 
@@ -20,19 +22,20 @@ public class ContaDTO implements Serializable {
   private String numCliente;
   private Double consumo;
 
-  public LocalDate getDataEmissao() {
+
+  public Date getDataEmissao() {
     return dataEmissao;
   }
 
-  public void setDataEmissao(LocalDate dataEmissao) {
+  public void setDataEmissao(Date dataEmissao) {
     this.dataEmissao = dataEmissao;
   }
 
-  public LocalDate getDataVencimento() {
+  public Date getDataVencimento() {
     return dataVencimento;
   }
 
-  public void setDataVencimento(LocalDate dataVencimento) {
+  public void setDataVencimento(Date dataVencimento) {
     this.dataVencimento = dataVencimento;
   }
 

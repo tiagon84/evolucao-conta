@@ -1,9 +1,10 @@
 package br.com.norberto.evolucaoconta.repository;
 
 import javax.transaction.Transactional;
-import br.com.norberto.evolucaoconta.model.Conta;
+import org.springframework.data.jpa.repository.JpaRepository;
+import br.com.norberto.evolucaoconta.model.ContaEnergia;
 
 @Transactional
-public interface ContaEnergiaRepository extends ContaBaseRepository<Conta> {
+public interface ContaEnergiaRepository extends JpaRepository<ContaEnergia, Long> {
 
 }

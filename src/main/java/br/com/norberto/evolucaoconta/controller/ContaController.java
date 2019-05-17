@@ -2,50 +2,57 @@ package br.com.norberto.evolucaoconta.controller;
 
 import java.time.LocalDate;
 import java.time.Month;
-import java.util.List;
-import org.springframework.http.HttpStatus;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.server.ResponseStatusException;
+import org.springframework.web.servlet.ModelAndView;
 import com.google.common.base.Preconditions;
 import br.com.norberto.evolucaoconta.dto.ContaDTO;
-import br.com.norberto.evolucaoconta.model.Conta;
+import br.com.norberto.evolucaoconta.exception.NotFoundResponseException;
 import br.com.norberto.evolucaoconta.model.ContaEnergia;
 import br.com.norberto.evolucaoconta.model.StatusConta;
 import br.com.norberto.evolucaoconta.repository.ContaEnergiaRepository;
+import br.com.norberto.evolucaoconta.util.Utils;
 
 @RestController
-@RequestMapping("/conta")
 class ContaController {
 
+  @Autowired
   private ContaEnergiaRepository contaEnergiaRepository;
 
   public ContaController(ContaEnergiaRepository contaEnergiaRepository) {
     this.contaEnergiaRepository = contaEnergiaRepository;
   }
 
-  @GetMapping("/all")
-  public List<Conta> getAll() {
-    return null;
+  @GetMapping("/contas")
+  public ModelAndView getAll(final ContaEnergia conta, final BindingResult bindingResult) {
+
+    ModelAndView mv = new ModelAndView("/contas");
+    mv.addObject("contas", contaEnergiaRepository.findAll());
+    mv.addObject("conta", conta);
+
+    return mv;
   }
 
-  @GetMapping("/{id}")
-  public Conta getOne(@PathVariable("id") Long id) {
+  @GetMapping("/contas/{id}")
+  public ContaEnergia getOne(@PathVariable("id") Long id) {
     return contaEnergiaRepository.findById(id)
-        .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Conta Not Found"));
+        .orElseThrow(() -> new NotFoundResponseException("Conta Not Found"));
   }
 
-  @GetMapping("/cadastrar")
-  public String getAlla() {
-    return "cadastrar";
+  @GetMapping("/add")
+  public ModelAndView add(final ContaEnergia conta, final BindingResult bindingResult) {
+    ModelAndView mv = new ModelAndView("/add");
+    mv.addObject("conta", conta);
+    return mv;
   }
 
-  @PostMapping("/add")
-  public Conta cadastrarConta(@RequestBody ContaDTO contaEnergia) {
+  @PostMapping("/contas")
+  public ContaEnergia saveConta(@RequestBody ContaDTO contaEnergia) {
     Preconditions.checkNotNull(contaEnergia);
 
     ContaEnergia conta = createConta(contaEnergia);
@@ -68,10 +75,11 @@ class ContaController {
       return StatusConta.PAGA;
     }
 
-    if (contaEnergia.getDataVencimento().isBefore(LocalDate.now())) {
+    if (Utils.convertToLocalDate(contaEnergia.getDataVencimento()).isBefore(LocalDate.now())) {
       return StatusConta.ATRASADA;
     }
 
     return StatusConta.ABERTA;
   }
+
 }
