@@ -1,4 +1,4 @@
-package br.com.norberto.evolucaoconta.config;
+/*package br.com.norberto.evolucaoconta.config;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -28,18 +28,19 @@ class LoadDatabase {
   private ContaEnergia createConta1() {
     return new ContaEnergia(Utils.convertToDate(LocalDate.of(2019, Month.JANUARY, 1)),
         Utils.convertToDate(LocalDate.of(2020, Month.JANUARY, 1)), new BigDecimal("54.3"),
-        StatusConta.ABERTA, Month.FEBRUARY, "123", "321", 48.1);
+        StatusConta.ABERTA, Month.FEBRUARY, "123", "321", new BigDecimal("48.14"));
   }
 
   private ContaEnergia createConta2() {
     return new ContaEnergia(Utils.convertToDate(LocalDate.of(2019, Month.MARCH, 21)),
         Utils.convertToDate(LocalDate.of(2019, Month.MAY, 1)), new BigDecimal("34.1"),
-        StatusConta.ATRASADA, Month.APRIL, "456", "654", 23.1);
+        StatusConta.ATRASADA, Month.APRIL, "456", "654", new BigDecimal("23.1"));
   }
 
   private ContaEnergia createConta3() {
     return new ContaEnergia(Utils.convertToDate(LocalDate.of(2019, Month.SEPTEMBER, 16)),
         Utils.convertToDate(LocalDate.of(2019, Month.DECEMBER, 5)), new BigDecimal("45.7"),
-        StatusConta.PAGA, Month.OCTOBER, "687", "876", 11.1);
+        StatusConta.PAGA, Month.OCTOBER, "687", "876", new BigDecimal("11.10"));
   }
 }
+*/

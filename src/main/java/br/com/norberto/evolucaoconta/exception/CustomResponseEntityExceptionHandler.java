@@ -12,13 +12,13 @@ import org.springframework.web.context.request.WebRequest;
 @ControllerAdvice
 public class CustomResponseEntityExceptionHandler {
 
-  @ExceptionHandler(Exception.class)
+  /*  @ExceptionHandler(Exception.class)
   protected ResponseEntity<Object> handleAllException(Exception ex, WebRequest request) {
-
+  
     ResponseException responseException =
         new ResponseException(LocalDateTime.now(), ex.getMessage(), request.getDescription(false));
     return new ResponseEntity(responseException, HttpStatus.INTERNAL_SERVER_ERROR);
-  }
+  }*/
 
   @ResponseBody
   @ExceptionHandler(NotFoundResponseException.class)

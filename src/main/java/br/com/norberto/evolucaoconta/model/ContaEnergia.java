@@ -37,12 +37,12 @@ public class ContaEnergia implements Serializable {
 
   private String numCliente;
 
-  private Double consumo;
+  private BigDecimal consumo;
 
   public ContaEnergia() {}
 
   public ContaEnergia(Date dataEmissao, Date dataVencimento, BigDecimal valor, StatusConta status,
-      Month mesReferente, String numInstalacao, String numCliente, Double consumo) {
+      Month mesReferente, String numInstalacao, String numCliente, BigDecimal consumo) {
     super();
     this.dataEmissao = dataEmissao;
     this.dataVencimento = dataVencimento;
